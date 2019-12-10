@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+  mongo:
+    image: mongo
+    container_name: my-mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: ${PASS}
+    volumes:
+      - ${VOLUME_PATH}/mongodb:/data/db
+      # - ${VOLUME_PATH}/mongodb-conf:/etc/mongodb-conf
+    networks:
+      - kazma_net
+    # init not enable auth
+    command: mongod # --auth
+    # command: mongod -f /etc/mongodb-conf/mongo.conf
+
+networks:
+  kazma_net:
+    name: kazma_network

@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: my-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PASS}
+    ports:
+      - 3306:3306
+    volumes:
+      - ${VOLUME_PATH}/mysql:/var/lib/mysql
+    restart: always
+    networks:
+      - kazma_net
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+networks:
+  kazma_net:
+    name: kazma_network
