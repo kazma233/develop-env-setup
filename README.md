@@ -5,3 +5,4 @@
 - mongodb
 - redis
 - postgress
+- v2ray
