@@ -13,8 +13,8 @@ services:
     #environment:
     #  MONGO_INITDB_ROOT_USERNAME: admin
     #  MONGO_INITDB_ROOT_PASSWORD: ${PASS}
-    # volumes:
-      #- ${VOLUME_PATH}/mongodb-p/db:/data/db
+    volumes:
+      - ${VOLUME_PATH}/mongodb-p/db:/data/db
       #- ${VOLUME_PATH}/mongodb-p/config:/etc/config
     networks:
       - kazma_net
@@ -29,8 +29,8 @@ services:
     #environment:
     #  MONGO_INITDB_ROOT_USERNAME: admin
     #  MONGO_INITDB_ROOT_PASSWORD: ${PASS}
-    #volumes:
-      #- ${VOLUME_PATH}/mongodb-s1/db:/data/db
+    volumes:
+      - ${VOLUME_PATH}/mongodb-s1/db:/data/db
       #- ${VOLUME_PATH}/mongodb-s1/config:/etc/config
     networks:
       - kazma_net
@@ -45,8 +45,8 @@ services:
     #environment:
     #  MONGO_INITDB_ROOT_USERNAME: admin
     #  MONGO_INITDB_ROOT_PASSWORD: ${PASS}
-    #volumes:
-      #- ${VOLUME_PATH}/mongodb-s2/db:/data/db
+    volumes:
+      - ${VOLUME_PATH}/mongodb-s2/db:/data/db
       #- ${VOLUME_PATH}/mongodb-s2/config:/etc/config
     networks:
       - kazma_net
