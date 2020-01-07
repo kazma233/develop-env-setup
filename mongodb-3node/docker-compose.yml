@@ -10,9 +10,9 @@ services:
     restart: always
     ports:
       - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: ${PASS}
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: admin
+    #  MONGO_INITDB_ROOT_PASSWORD: ${PASS}
     # volumes:
       #- ${VOLUME_PATH}/mongodb-p/db:/data/db
       #- ${VOLUME_PATH}/mongodb-p/config:/etc/config
@@ -26,9 +26,9 @@ services:
     image: mongo
     container_name: mongo-s1
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: ${PASS}
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: admin
+    #  MONGO_INITDB_ROOT_PASSWORD: ${PASS}
     #volumes:
       #- ${VOLUME_PATH}/mongodb-s1/db:/data/db
       #- ${VOLUME_PATH}/mongodb-s1/config:/etc/config
@@ -42,9 +42,9 @@ services:
     image: mongo
     container_name: mongo-s2
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: ${PASS}
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: admin
+    #  MONGO_INITDB_ROOT_PASSWORD: ${PASS}
     #volumes:
       #- ${VOLUME_PATH}/mongodb-s2/db:/data/db
       #- ${VOLUME_PATH}/mongodb-s2/config:/etc/config
