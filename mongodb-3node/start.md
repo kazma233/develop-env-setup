@@ -25,6 +25,8 @@ var cfg = {
 }
 
 rs.initiate(cfg)
+
+rs.remove("mongod3.example.net:27017")
 ```
 
 ### 配置后，指定复制集的优先级
