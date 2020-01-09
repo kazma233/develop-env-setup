@@ -11,7 +11,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: ${PASS}
     volumes:
-      - ${VOLUME_PATH}/mongodb-p/db:/data/db
+      - ${VOLUME_PATH}/my-mongo/db:/data/db
     networks:
       - kazma_net
 
