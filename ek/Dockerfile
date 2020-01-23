@@ -8,4 +8,4 @@ RUN mkdir /usr/share/elasticsearch/plugins/ik \
 EXPOSE 9200
 EXPOSE 9300
 
-# NTRYPOINT [ "/usr/share/elasticsearch/bin/elasticsearch" ]
+# ENTRYPOINT [ "/usr/share/elasticsearch/bin/elasticsearch" ]

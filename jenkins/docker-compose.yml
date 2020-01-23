@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  jenkins-server:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-server
+    ports:
+      - 7000:8080
+      - 50000:50000
+    volumes:
+      - ~/docker_data/jenkins_home:/var/jenkins_home
+    networks:
+      - kazma_net
+    restart: always
+
+networks:
+  kazma_net:
+    name: kazma_network
