@@ -14,7 +14,7 @@ services:
     networks:
       - es7net
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.1.0
+    image: docker.elastic.co/kibana/kibana:7.6.0
     container_name: kibana7
     environment:
       - I18N_LOCALE=zh-CN
