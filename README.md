@@ -1,8 +1,12 @@
 # docker-dev-env
 
-- elasticsearch
-- mysql
+- clash
+- elasticsearch,kibana
+- jenkins
+- logstash
 - mongodb
+- mongodb-3node
+- mysql
+- postgreSQL
 - redis
-- postgress
 - v2ray
