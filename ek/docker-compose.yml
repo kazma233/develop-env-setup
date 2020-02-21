@@ -38,7 +38,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - D:/docker_data/es7data1:/usr/share/elasticsearch/data
+      - ${VOLUME_PATH}/es7data1:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
     networks:
@@ -60,16 +60,9 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - D:/docker_data/es7data2:/usr/share/elasticsearch/data
+      - ${VOLUME_PATH}/es7data2:/usr/share/elasticsearch/data
     networks:
       - es7net
-
-
-volumes:
-  es7data1:
-    driver: local
-  es7data2:
-    driver: local
 
 networks:
   es7net:
