@@ -14,7 +14,7 @@ services:
     networks:
       - es7net
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.6.0
+    image: docker.elastic.co/kibana/kibana:${ES_VERSION}
     container_name: kibana7
     environment:
       - I18N_LOCALE=zh-CN
@@ -29,9 +29,7 @@ services:
     networks:
       - es7net
   elasticsearch:
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ES_VERSION}
     container_name: es7_01
     environment:
       - cluster.name=geektime
@@ -51,9 +49,7 @@ services:
     networks:
       - es7net
   elasticsearch2:
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ES_VERSION}
     container_name: es7_02
     environment:
       - cluster.name=geektime
