@@ -2,11 +2,6 @@ FROM docker.elastic.co/elasticsearch/elasticsearch:7.6.0
 
 ENV ES_VERSION 7.6.0
 
-USER root
-RUN usermod -g root elasticsearch
-
-USER elasticsearch
-
 ADD https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v$ES_VERSION/elasticsearch-analysis-ik-$ES_VERSION.zip /usr/share/elasticsearch/elasticsearch-analysis-ik-$ES_VERSION.zip
 
 RUN mkdir /usr/share/elasticsearch/plugins/ik \
