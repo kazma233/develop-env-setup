@@ -107,7 +107,7 @@ services:
       - 27017
     volumes:
       - ${VOLUME_PATH}/wekan-db:/data/db
-      - ${VOLUME_PATH}wekan-db-dump:/dump
+      - ${VOLUME_PATH}/wekan-db-dump:/dump
 
   wekan:
     #-------------------------------------------------------------------------------------
