@@ -13,4 +13,4 @@ services:
     restart: always
     
 volumes:
-  - portainer_data
+  portainer_data:
