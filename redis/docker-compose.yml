@@ -2,17 +2,15 @@ version: '3.5'
 
 services:
   redis:
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: redis:latest
     container_name: my-redis
     ports:
       - 6379:6379
-    #volumes:
-    #  - ${VOLUME_PATH}/redis:/redis_data
+    volumes:
+      - ${VOLUME_PATH}/redis:/data
+      - ${VOLUME_PATH}/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server --requirepass ${PASS}
     restart: always
-    # logging:
-    #   driver: syslog
     networks:
       - kazma_net
 
