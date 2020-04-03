@@ -17,4 +17,4 @@ services:
   
 networks:
   kazma_net:
-  name: kazma_network
+    name: kazma_network
