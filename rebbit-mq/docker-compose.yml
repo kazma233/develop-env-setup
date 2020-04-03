@@ -1,0 +1,20 @@
+version: '3.5'
+
+services: 
+  rabbotmq:
+    image: rabbitmq:3-management
+    container_name: my-rabbitmq
+    restart: always
+    ports: 
+      - 5672:5672
+      - 15672:15672
+    hostname: my-rabbit
+    environment: 
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: ${PASS}
+    networks:
+      - kazma_net
+  
+networks:
+  kazma_net:
+  name: kazma_network
