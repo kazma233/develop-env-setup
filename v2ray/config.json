@@ -14,7 +14,7 @@
       "settings": {
         "clients": [
           {
-            "id": "random-id",
+            "id": "xxxxxxx",
             "alterId": 64
           }
         ]
@@ -23,7 +23,20 @@
         "network": "tcp",
         "security": "none",
         "tcpSettings": {
-          "type": "none"
+          "type": "http",
+          "request": {
+            "method": "GET",
+            "path": [
+              "/"
+            ],
+            "headers": {}
+          },
+          "response": {
+            "version": "1.1",
+            "status": "200",
+            "reason": "OK",
+            "headers": {}
+          }
         }
       },
       "tag": "",
