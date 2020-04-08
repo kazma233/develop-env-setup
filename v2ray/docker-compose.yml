@@ -7,7 +7,6 @@ services:
     ports:
       - 23333:23333
     volumes:
-      - ~/v2ray/config:/etc/v2ray
-      - ~/v2ray/logs:/var/log/v2ray
+      - ./config.json:/etc/v2ray/config.json
     command: v2ray --config=/etc/v2ray/config.json
     
