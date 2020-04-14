@@ -5,13 +5,13 @@ services:
     volumes:
       - ./config.yaml:/root/.config/clash/config.yaml
       # dashboard volume
-      # - ./ui:/ui
+      - ./ui:/ui
     ports:
       - "7890:7890"
       - "7891:7891"
       # If you need external controller, you can export this port.
-      # - "8080:8080"
+      - "9090:8080"
     restart: always
     # When your system is Linux, you can use `network_mode: "host"` directly.
-    network_mode: "bridge"  # host # bridge
+    network_mode: "host"  # host # bridge
     container_name: clash
