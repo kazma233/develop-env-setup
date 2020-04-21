@@ -4,34 +4,36 @@
   },
   "dns": {},
   "stats": {},
-  "inbounds": {
-    "port": 23333,
-    "listen": "0.0.0.0",
-    "protocol": "vmess",
-    "settings": {
-      "clients": [
-        {
-          "id": "x",
-          "alterId": 64
+  "inbounds": [
+    {
+      "port": 23333,
+      "listen": "0.0.0.0",
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "x",
+            "alterId": 64
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {
+          "type": "none"
         }
-      ]
-    },
-    "streamSettings": {
-      "network": "tcp",
-      "security": "none",
-      "tcpSettings": {
-        "type": "none"
+      },
+      "tag": "",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
       }
-    },
-    "tag": "",
-    "sniffing": {
-      "enabled": true,
-      "destOverride": [
-        "http",
-        "tls"
-      ]
     }
-  },
+  ],
   "outbound": {
     "protocol": "freedom",
     "settings": {}
