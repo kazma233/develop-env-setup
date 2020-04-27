@@ -5,6 +5,7 @@ services:
     image: liyasthomas/postwoman:latest
     container_name: postwoman
     restart: always
+    network_mode: "host"
     ports: 
       - 3000:3000
 
