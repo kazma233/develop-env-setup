@@ -1,0 +1,10 @@
+version: '3.5'
+
+services: 
+  postwoman:
+    image: liyasthomas/postwoman:latest
+  container_name: postwoman
+  restart: always
+  ports: 
+    - 3000:3000
+
