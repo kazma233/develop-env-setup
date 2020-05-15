@@ -6,7 +6,7 @@ services:
     container_name: my-xxl-job
     restart: always
     ports: 
-      - 9000:8080
+      - 9010:8080
     volumes: 
       - ${VOLUME_PATH}/xxl-job/applogs:/data/applogs
     networks: 
