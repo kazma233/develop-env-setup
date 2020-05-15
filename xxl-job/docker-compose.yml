@@ -1,0 +1,22 @@
+version: '3.5'
+
+services: 
+  xxl-job:
+    image: xuxueli/xxl-job-admin:2.2.0
+    container_name: my-xxl-job
+    restart: always
+    ports: 
+      - 9000:8080
+    volumes: 
+      - ${VOLUME_PATH}/xxl-job/applogs:/data/applogs
+    environment: 
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD} 
+      LOGIN_USERNAME: ${LOGIN_USERNAME}
+      LOGIN_PASSWORD: ${LOGIN_PASSWORD}
+      MAIL_HOST: ${MAIL_HOST}
+      MAIL_PORT: ${MAIL_PORT}
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
