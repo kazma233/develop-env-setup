@@ -9,6 +9,8 @@ services:
       - 9000:8080
     volumes: 
       - ${VOLUME_PATH}/xxl-job/applogs:/data/applogs
+    networks: 
+      - kazma_net
     environment: 
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_PORT: ${MYSQL_PORT}
@@ -20,3 +22,7 @@ services:
       MAIL_PORT: ${MAIL_PORT}
       MAIL_USERNAME: ${MAIL_USERNAME}
       MAIL_PASSWORD: ${MAIL_PASSWORD}
+
+networks:
+  kazma_net:
+    name: kazma_network
