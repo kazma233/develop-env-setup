@@ -27,7 +27,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASS}
     volumes:
       - ${VOLUME_PATH}/xxl-job-mysql:/var/lib/mysql
-      - xxl-job.sql:/docker-entrypoint-initdb.d/xxl-job.sql
+      - ./xxl-job.sql:/docker-entrypoint-initdb.d/xxl-job.sql
     restart: always
     networks:
       - kazma_net
