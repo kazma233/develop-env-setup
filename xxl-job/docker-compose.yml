@@ -32,7 +32,8 @@ services:
         --spring.mail.host=smtp.163.com \ 
         --spring.mail.username=kazma_todo@163.com \
         --spring.mail.password="
-    depends_on: xxl-job-mysql
+    depends_on: 
+      - xxl-job-mysql
 
 
 networks:
