@@ -4,6 +4,8 @@ services:
   jenkins-server:
     image: jenkins/jenkins:lts
     container_name: jenkins-server
+    environment: 
+      TZ: 'Asia/Shanghai'
     ports:
       - 7000:8080
       - 50000:50000
