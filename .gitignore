@@ -1,2 +1,4 @@
 config.yaml
 clash/ui
+docker-data/
+.vagrant
