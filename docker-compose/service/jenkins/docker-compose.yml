@@ -11,10 +11,5 @@ services:
       - 50000:50000
     volumes:
       - ~/docker_data/jenkins_home:/var/jenkins_home
-    networks:
-      - kazma_net
     restart: always
 
-networks:
-  kazma_net:
-    name: kazma_network

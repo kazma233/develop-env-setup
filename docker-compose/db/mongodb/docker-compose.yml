@@ -3,8 +3,8 @@ version: '3.5'
 services:
   mongo:
     image: mongo
-    container_name: my-mongo
-    #restart: always
+    container_name: mongodb-dev
+    restart: always
     ports:
       - 27017:27017
     environment:
@@ -12,9 +12,3 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${PASS}
     volumes:
       - ${VOLUME_PATH}/my-mongo/db:/data/db
-    networks:
-      - kazma_net
-
-networks:
-  kazma_net:
-    name: kazma_network
