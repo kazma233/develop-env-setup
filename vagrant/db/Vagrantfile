@@ -53,8 +53,6 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "./", "/vagrant"
   # docker-compose volume
   config.vm.synced_folder "../../docker-compose/db", "/db"
-  # docekr data valume(TODO get some error)
-  # config.vm.synced_folder "./docker-data", "/docker-data"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.

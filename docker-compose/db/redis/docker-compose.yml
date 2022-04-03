@@ -7,7 +7,7 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ${VOLUME_PATH}/redis:/data
+      - ${VOLUME_PATH}/:/data
       - ${VOLUME_PATH}/redis/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server --requirepass ${PASS}
     restart: always

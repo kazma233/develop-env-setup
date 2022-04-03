@@ -11,4 +11,4 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: ${PASS}
     volumes:
-      - ${VOLUME_PATH}/my-mongo/db:/data/db
+      - ${VOLUME_PATH}/data/db:/data/db
