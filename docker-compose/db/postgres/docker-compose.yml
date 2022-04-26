@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: pw123456
     volumes:
-      - ~/docekr/postgresql/data:/var/lib/postgresql/data
+      - ~/docker/postgresql/data:/var/lib/postgresql/data
     networks:
       - dev
     ports:

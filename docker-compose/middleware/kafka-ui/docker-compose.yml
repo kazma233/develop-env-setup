@@ -11,3 +11,10 @@ services:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kazma-vm:9092
       - KAFKA_CLUSTERS_0_ZOOKEEPER=192.168.50.162:2181
+    networks:
+      - dev
+
+networks:
+  dev:
+    name: dev-bridge
+    driver: bridge

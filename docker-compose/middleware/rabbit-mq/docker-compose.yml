@@ -12,3 +12,10 @@ services:
     environment: 
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: pw123456
+    networks:
+      - dev
+
+networks:
+  dev:
+    name: dev-bridge
+    driver: bridge
