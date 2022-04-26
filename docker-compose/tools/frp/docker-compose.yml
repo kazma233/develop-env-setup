@@ -9,4 +9,4 @@ services:
       - 7100:7100
     network_mode: "host"
     volumes:
-      - ~/frp/config:/etc/frp/
+      - ./frp/config:/etc/frp/

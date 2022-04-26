@@ -11,4 +11,4 @@ services:
     hostname: rabbitmq-dev
     environment: 
       RABBITMQ_DEFAULT_USER: admin
-      RABBITMQ_DEFAULT_PASS: ${PASS}
+      RABBITMQ_DEFAULT_PASS: pw123456

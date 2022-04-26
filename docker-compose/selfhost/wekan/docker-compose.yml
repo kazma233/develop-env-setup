@@ -106,8 +106,8 @@ services:
     expose:
       - 27017
     volumes:
-      - ${VOLUME_PATH}/wekan-db:/data/db
-      - ${VOLUME_PATH}/wekan-db-dump:/dump
+      - ~/docekr/wekan-db/db:/data/db
+      - ~/docekr/wekan-db/dump:/dump
 
   wekan:
     #-------------------------------------------------------------------------------------
@@ -161,7 +161,7 @@ services:
       #  - http://example.com
       #  - http://boards.example.com
       #  - http://192.168.1.100    <=== using at local LAN
-      - ROOT_URL=${ROOT_URL}  #   <=== using only at same laptop/desktop where Wekan is installed
+      - ROOT_URL=${ROOT_URL} #   <=== using only at same laptop/desktop where Wekan is installed
       #---------------------------------------------------------------
       # ==== EMAIL SETTINGS ====
       # Email settings are required in both MAIL_URL and Admin Panel,

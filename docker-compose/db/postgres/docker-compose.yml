@@ -7,11 +7,11 @@ services:
     restart: always
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: ${PASS}
+      POSTGRES_PASSWORD: pw123456
     volumes:
-      - ${VOLUME_PATH}/postgresql/data:/var/lib/postgresql/data
+      - ~/docekr/postgresql/data:/var/lib/postgresql/data
     networks:
-      - dev_network
+      - dev
     ports:
       - 5432:5432
   adminer:
@@ -23,8 +23,9 @@ services:
     depends_on:
       - postgres-dev
     networks:
-      - dev_network
+      - dev
 
 networks:
-  dev_network:
-    name: dev_network
+  dev:
+    name: dev-bridge
+    driver: bridge

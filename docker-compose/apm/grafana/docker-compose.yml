@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  grafana-server:
+    image: grafana/grafana-oss:latest
+    container_name: my_grafana
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    networks:
+      - dev
+    volumes:
+      - ~/docker/grafana:/var/lib/grafana
+
+networks:
+  dev:
+    name: dev-bridge
+    driver: bridge

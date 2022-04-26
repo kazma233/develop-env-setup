@@ -1,15 +1,20 @@
-version: '3.5'
+version: "3.8"
 
 services:
   jenkins-server:
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins:lts-jdk11
     container_name: jenkins-server
-    environment: 
-      TZ: 'Asia/Shanghai'
+    restart: unless-stopped
+    environment:
+      TZ: "Asia/Shanghai"
     ports:
       - 7000:8080
       - 50000:50000
     volumes:
-      - ~/docker_data/jenkins_home:/var/jenkins_home
-    restart: always
+      - ~/docker/jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins
 
+networks:
+  jenkins:
+    driver: bridge
