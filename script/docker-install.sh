@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# then back
-
 shell_prefix="[DOCKER_INSTALL]"
 
 if [ $(whoami) = "root" ]; then
@@ -24,7 +22,7 @@ echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # configure docker to start on boot
 if [ "$daemon_type" = "systemd" ]; then
@@ -39,16 +37,11 @@ else
     echo "${shell_prefix}can not configure docker to start on boot!"
 fi
 
-# install docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" \
-    -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
 # manage docker as a non-root user
 docker_group=$(grep "^docker" /etc/group)
 if [ "$docker_group" == "" ]; then
     echo "${shell_prefix}create group docker"
     sudo groupadd docker
 fi
-sudo usermod -aG docker "$USER"
+sudo usermod -aG docker $USER
 newgrp docker
