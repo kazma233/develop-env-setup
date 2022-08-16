@@ -3,25 +3,39 @@ filebeat.config:
     path: ${path.config}/modules.d/*.yml
     reload.enabled: false
 
-# filebeat.autodiscover:
-#   providers:
-#     - type: docker
-#       hints.enabled: true
-
 setup.template.name: "filebeat"
 setup.template.pattern: "filebeat-*"
 setup.template.settings:
   index.number_of_shards: 1
-  index.number_of_replicas: 1
-
-processors:
-- add_cloud_metadata: ~
+  index.number_of_replicas: 2
 
 filebeat.inputs:
-- type: filestream
-  id: log_demo
-  paths:
-    - /logs/*.log
+  - type: filestream
+    id: java-logs
+    paths:
+      - /logs/*.log
+    parsers:
+      - multiline:
+          type: pattern
+          pattern: '^[[:space:]]+(at|\.{3})[[:space:]]+\b|^Caused by:'
+          negate: false
+          match: after
+    processors:
+      - add_kubernetes_metadata:
+      - add_host_metadata:
+      - add_process_metadata:
+
+# filebeat.autodiscover:
+#   providers:
+#     - type: kubernetes
+#       node: ${NODE_NAME}
+#       hints.enabled: true
+#       hints.default_config:
+#         type: container
+#         paths:
+#           - /var/log/containers/*${data.kubernetes.container.id}.log
 
 output.elasticsearch:
-  hosts: 'http://es7_01:9200'
+  hosts: ["es7_01:9200"]
+  username: elastic
+  password: pw123456
