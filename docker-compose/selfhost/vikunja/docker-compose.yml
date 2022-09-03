@@ -1,0 +1,42 @@
+version: '2'
+services:
+  frontend:
+    image: vikunja/frontend:latest
+    ports:
+      - 7788:80
+    environment:
+      VIKUNJA_API_URL: ${FRONTENDURL}:7787/api/v1
+    depends_on:
+      - api
+    restart: unless-stopped
+  api:
+    image: vikunja/api:latest
+    ports:
+      - 7787:3456
+    environment:
+      VIKUNJA_DATABASE_HOST: vikunjadb
+      VIKUNJA_DATABASE_PASSWORD: ${PW}
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_USER: vikunja
+      VIKUNJA_SERVICE_JWTSECRET: ${JWTSECRET}
+      VIKUNJA_SERVICE_FRONTENDURL: ${FRONTENDURL}:7788/
+      VIKUNJA_MAILER_ENABLED: true
+      VIKUNJA_MAILER_HOST: ${VIKUNJA_MAILER_HOST}
+      VIKUNJA_MAILER_PORT: ${VIKUNJA_MAILER_PORT}
+      VIKUNJA_MAILER_USERNAME: ${VIKUNJA_MAILER_USERNAME}
+      VIKUNJA_MAILER_PASSWORD: ${VIKUNJA_MAILER_PASSWORD}
+      VIKUNJA_MAILER_FROMEMAIL: ${VIKUNJA_MAILER_FROMEMAIL}
+      VIKUNJA_MAILER_SKIPTLSVERIFY: true
+    volumes:
+      - ./files:/app/vikunja/files
+    depends_on:
+      - vikunjadb
+    restart: unless-stopped
+  vikunjadb:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: ${PW}
+      POSTGRES_USER: vikunja
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    restart: unless-stopped
