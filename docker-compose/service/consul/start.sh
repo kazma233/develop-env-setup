@@ -1,1 +1,0 @@
-docker run -d -p 8500:8500 -v ~/docker_data/consul:/consul/data -e CONSUL_BIND_INTERFACE='eth0' --name=consul_server_single consul:latest agent -server -bootstrap -ui -node=single-node -client='0.0.0.0'

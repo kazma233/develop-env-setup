@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prometheus-svc-i
+spec:
+  selector:
+    prometheus: prometheus
+  ports:
+  - name: web
+    port: 9090
