@@ -30,3 +30,17 @@ spec:
                 name: nginx-service
                 port:
                   number: 80
+          - pathType: Prefix
+            path: /grafana(/|$)(.*)
+            backend:
+              service:
+                name: grafana
+                port:
+                  number: 3000
+          - pathType: Prefix
+            path: /jaeger(/|$)(.*)
+            backend:
+              service:
+                name: jaeger-web-svc
+                port:
+                  number: 16686

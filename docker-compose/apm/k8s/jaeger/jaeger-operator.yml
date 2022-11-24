@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-operator
+spec:
+  selector:
+    matchLabels:
+      app: jaeger-operator
+  template:
+    metadata:
+      labels:
+        app: jaeger-operator
+    spec:
+      containers:
+        - name: jaeger-operator
+          image: jaegertracing/jaeger-operator:master
+          args: ["start"]
+          env:
+            - name: LOG-LEVEL
+              value: debug
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"

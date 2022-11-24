@@ -1,0 +1,24 @@
+---
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: my-jaeger
+spec:
+  strategy: allInOne
+  collector:
+    maxReplicas: 5
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: jaeger-web-svc
+spec:
+  selector:
+    app: jaeger
+  ports:
+    - name: web
+      port: 16686

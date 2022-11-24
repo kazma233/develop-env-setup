@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,3 +27,16 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-service
+  labels:
+    app: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - name: web
+      port: 80
