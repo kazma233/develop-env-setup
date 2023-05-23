@@ -24,6 +24,7 @@ tasks:
       - sdk install java 11.0.12-open
       - sdk install java 17.0.5-oracle
   sdkman-config:
+    internal: true 
     cmds:
       # s/搜索模式/替换模式/替换标志
       - sed -i '/sdkman_auto_answer/ s/.*/sdkman_auto_answer=true/' ~/.sdkman/etc/config

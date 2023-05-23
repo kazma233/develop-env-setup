@@ -6,4 +6,4 @@
 
 ## usage 
 
-`task tasks`
+`task [tasks]`
