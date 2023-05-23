@@ -1,0 +1,29 @@
+version: '3'
+tasks:
+  gcc:
+    - brew install gcc
+  go:
+    cmds: 
+      - brew install go
+  python:
+    cmds: 
+      - brew install python@3.11
+  nvm:
+    cmds:
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  openssh:
+    cmds:
+      - sudo pacman -Sy openssh
+      - sudo systemctl start sshd.service
+      - sudo systemctl enable sshd.service
+  sdkman:
+    cmds:
+      - task: sdkman-config
+      - curl -s "https://get.sdkman.io" | bash
+      - source "/home/kazma/.sdkman/bin/sdkman-init.sh"
+      - sdk install java 11.0.12-open
+      - sdk install java 17.0.5-oracle
+  sdkman-config:
+    cmds:
+      # s/搜索模式/替换模式/替换标志
+      - sed -i '/sdkman_auto_answer/ s/.*/sdkman_auto_answer=true/' ~/.sdkman/etc/config
