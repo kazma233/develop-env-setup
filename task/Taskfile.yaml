@@ -1,7 +1,8 @@
 version: '3'
 tasks:
   gcc:
-    - brew install gcc
+    cmds:
+      - brew install gcc
   go:
     cmds: 
       - brew install go
