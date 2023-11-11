@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   jenkins-server:
-    image: jenkins/jenkins:lts-jdk11
+    image: jenkins/jenkins:jenkins:latest
     container_name: jenkins-server
     restart: unless-stopped
     environment:
