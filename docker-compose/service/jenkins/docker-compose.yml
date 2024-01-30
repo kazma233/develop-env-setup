@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile
     container_name: jenkins-server
     restart: unless-stopped
-    environment:
-      - TZ:Asia/Shanghai
     ports:
       - 7000:8080
       - 50000:50000
