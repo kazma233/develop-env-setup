@@ -7,8 +7,8 @@ services:
     ports:
       - 6380:6379
     volumes:
-      - ~/docker/valkey/data/data:/data:ro
-      #- ~/docker/valkey/config/valkey.conf:/usr/local/etc/valkey/valkey.conf:ro
+      - ~/docker/valkey/data/data:/data
+      #- ~/docker/valkey/config/valkey.conf:/usr/local/etc/valkey/valkey.conf
     restart: always
     networks:
       - dev
