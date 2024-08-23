@@ -1,6 +1,7 @@
 FROM jenkins/jenkins:latest
 
 USER root
-RUN apt-get update && apt-get install -y build-essential
+COPY build_env.sh build_env.sh
+RUN chmod +x build_env.sh && ./build_env.sh
 
 USER jenkins
