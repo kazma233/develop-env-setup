@@ -21,7 +21,7 @@ services:
     ports:
       - 5431:8080
     depends_on:
-      - postgres-dev
+      - postgres
     networks:
       - dev
 
