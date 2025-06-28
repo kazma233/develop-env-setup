@@ -9,10 +9,15 @@ services:
       - 7000:8080
       - 50000:50000
     volumes:
-      - ~/docker/jenkins_home:/var/jenkins_home
+      - jenkins-home:/var/jenkins_home
     networks:
       - jenkins
 
 networks:
   jenkins:
     driver: bridge
+
+volumes:
+  jenkins-home:
+    driver: local
+    name: jenkins-home

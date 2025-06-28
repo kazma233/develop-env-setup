@@ -10,7 +10,7 @@ RUN ["/bin/bash", "-c", "chmod +x build_env.sh && ./build_env.sh && rm -f ./buil
 
 USER jenkins
 
-WORKDIR /script
+# WORKDIR /script
 
 # COPY --chown=jenkins:jenkins --chmod=644 install_go.sh install_go.sh
 # RUN ["/bin/bash", "-c", "chmod +x install_go.sh && ./install_go.sh && rm -f ./install_go.sh"]
@@ -18,4 +18,4 @@ WORKDIR /script
 # COPY --chown=jenkins:jenkins --chmod=644 install_rust.sh install_rust.sh
 # RUN ["/bin/bash", "-c", "chmod +x install_rust.sh && ./install_rust.sh && rm -f ./install_rust.sh"]
 
-WORKDIR /
+WORKDIR /var/jenkins_home
