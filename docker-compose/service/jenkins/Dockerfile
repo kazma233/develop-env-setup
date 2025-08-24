@@ -13,9 +13,9 @@ USER jenkins
 # WORKDIR /script
 
 # COPY --chown=jenkins:jenkins --chmod=644 install_go.sh install_go.sh
-# RUN ["/bin/bash", "-c", "chmod +x install_go.sh && ./install_go.sh && rm -f ./install_go.sh"]
+# chmod +x install_go.sh && ./install_go.sh && rm -f install_go.sh
 
 COPY --chown=jenkins:jenkins --chmod=644 install_rust.sh install_rust.sh
-RUN ["/bin/bash", "-c", "chmod +x install_rust.sh && ./install_rust.sh && rm -f ./install_rust.sh"]
+RUN chmod +x install_rust.sh && ./install_rust.sh && rm -f install_rust.sh
 
 WORKDIR /var/jenkins_home
