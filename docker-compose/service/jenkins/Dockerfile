@@ -2,20 +2,19 @@ FROM jenkins/jenkins:latest
 
 USER root
 
-WORKDIR /build_script
-
-COPY build_env.sh build_env.sh
-RUN ["/bin/bash", "-c", "chmod +x build_env.sh && ./build_env.sh && rm -f ./build_env.sh"]
-
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential wget \
+    && rm -rf /var/lib/apt/lists/*
 
 USER jenkins
 
-WORKDIR /script
-
-# COPY --chown=jenkins:jenkins --chmod=644 install_go.sh install_go.sh
-# chmod +x install_go.sh && ./install_go.sh && rm -f install_go.sh
-
-COPY --chown=jenkins:jenkins --chmod=644 install_rust.sh install_rust.sh
-RUN chmod +x install_rust.sh && ./install_rust.sh && rm -f install_rust.sh
+RUN curl -sSL https://sh.rustup.rs | sh -s -- -y \
+    && echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> "$HOME/.profile" \
+    && echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> "$HOME/.bashrc" \
+    && $HOME/.cargo/bin/cargo install wasm-pack \
+    && rm -rf /tmp/rustup-init* \
+    && rm -rf "$HOME"/.cargo/registry \
+    && rm -rf "$HOME"/.cargo/git \
+    && rm -rf "$HOME"/.cache/rustup
 
 WORKDIR /var/jenkins_home
