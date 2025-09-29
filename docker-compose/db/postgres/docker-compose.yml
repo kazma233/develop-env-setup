@@ -6,17 +6,17 @@ services:
     container_name: postgres-dev
     restart: always
     environment:
-      POSTGRES_USER: admin
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: pw123456
     volumes:
-      - ~/docker/postgresql/data:/var/lib/postgresql/data
+      - postgres-db:/var/lib/postgresql/data
     networks:
       - dev
     ports:
       - 5432:5432
   adminer:
-    image: adminer
     container_name: adminer
+    image: adminer
     restart: always
     ports:
       - 5431:8080
@@ -29,3 +29,8 @@ networks:
   dev:
     name: dev-bridge
     driver: bridge
+
+volumes:
+  postgres-db:
+    driver: local
+    name: postgres-db
