@@ -7,9 +7,9 @@ services:
     ports:
       - 6379:6379
       - 8380:8001
-    volumes:
-      - ~/docker/redis-stack/data:/data
-      - ~/docker/redis-stack/redis-stack.conf:/redis-stack.conf
+    # volumes:
+    #   - ~/docker/redis-stack/data:/data
+    #   - ~/docker/redis-stack/redis-stack.conf:/redis-stack.conf
     restart: always
     networks:
       - dev

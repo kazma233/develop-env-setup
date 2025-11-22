@@ -6,9 +6,9 @@ services:
     container_name: redis-dev
     ports:
       - 6379:6379
-    volumes:
-      - ~/docker/redis/data/data:/data
-      - ~/docker/redis/config/redis.conf:/usr/local/etc/redis/redis.conf
+    # volumes:
+    #   - ~/docker/redis/data/data:/data
+    #   - ~/docker/redis/config/redis.conf:/usr/local/etc/redis/redis.conf
     restart: always
     networks:
       - dev

@@ -11,7 +11,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: pw123456
     volumes:
-      - ~/docker/mongo/data/db:/data/db
+      - mongo-db:/data/db
     networks:
       - dev
   mongo-express:
@@ -31,3 +31,8 @@ networks:
   dev:
     name: dev-bridge
     driver: bridge
+
+volumes:
+  mongo-db:
+    driver: local
+    name: mongo-db

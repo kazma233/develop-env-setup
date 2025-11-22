@@ -3,3 +3,4 @@ clash/ui
 docker-data/
 .vagrant
 data/
+.vscode

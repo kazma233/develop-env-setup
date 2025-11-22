@@ -4,13 +4,13 @@ services:
   mysql:
     image: mysql:latest
     container_name: mysql-dev
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: pw123456
     ports:
       - 3306:3306
     volumes:
-      - ~/docker/mysql:/var/lib/mysql
-    restart: always
+      - mysql-db:/var/lib/mysql
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
       - dev
@@ -19,3 +19,8 @@ networks:
   dev:
     name: dev-bridge
     driver: bridge
+
+volumes:
+  mysql-db:
+    driver: local
+    name: mysql-db
